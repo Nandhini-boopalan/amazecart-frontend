@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import Loader from '../layouts/loader';
 import  getProduct  from '../../actions/productAction';
 import {Carousel} from 'react-bootstrap'
+import Metadata from '../layouts/metadata';
+
 
 const ProductDetail = () => {
     const { loading, product } = useSelector((state) => state.productState);
@@ -12,20 +14,21 @@ const ProductDetail = () => {
 
     useEffect(() => {
         dispatch(getProduct(id));
-    }, []);
+    }, [dispatch,id]);
 
     // Log the props received by the component
-    console.log("Props received by ProductDetail:", { loading, product });
+    //console.log("Props received by ProductDetail:", { loading, product });
     const { product: actualProduct } = product;
     <h3>{actualProduct && actualProduct.name}</h3>
-    console.log("Product Name:", actualProduct && actualProduct.name);
-    console.log(actualProduct)
+    //console.log("Product Name:", actualProduct && actualProduct.name);
+    //console.log(actualProduct)
     return (
         <Fragment>
             {loading ? (
                 <Loader />
             ) : actualProduct !== undefined ? (
                 <Fragment>
+                   <Metadata title={actualProduct.name}/>
                     <div className="row f-flex justify-content-around">
                         <div className="col-12 col-lg-5 img-fluid" id="product_image">
                             <Carousel pause='hover'>

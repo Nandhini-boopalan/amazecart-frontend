@@ -16,3 +16,4 @@ dispatch(productFail(error.response.data.message))
    
 }
 export default getProduct
+
