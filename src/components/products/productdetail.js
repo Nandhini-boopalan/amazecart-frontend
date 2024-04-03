@@ -2,7 +2,8 @@ import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Loader from '../layouts/loader';
-import  getProduct  from '../../actions/productAction';
+import { getProduct } from '../../actions/productActions';
+
 import {Carousel} from 'react-bootstrap'
 import Metadata from '../layouts/metadata';
 

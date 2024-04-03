@@ -2,7 +2,7 @@ import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import Metadata from "../layouts/metadata";
 import { useDispatch, useSelector } from "react-redux";
-import getProducts from "../../actions/productsActions";
+import getProducts from "../../actions/productActions";
 import Loader from "../layouts/loader";
 import Product from "./product";
 import { toast } from "react-toastify";
@@ -43,7 +43,7 @@ const ProductSearch = () => {
       });
     }
     // Fetch products only if there's a keyword or currentPage change
-    dispatch(getProducts(keyword,price,categories,rating ,currentPage));
+    dispatch(getProducts(keyword,priceChanged,categories,rating ,currentPage));
   }, [dispatch, error, currentPage, keyword,priceChanged,categories,rating]); // Depend on keyword and currentPage
 
   const setCurrentPageNo = (pageNo) => {
