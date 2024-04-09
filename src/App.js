@@ -44,6 +44,7 @@ function App() {
            <Route path="/myprofile/update/password" element={<ProtectedRoute><UpdatePassword/></ProtectedRoute>}/>
            <Route path="/password/forgot" element={<ForgotPassword/>}/>
            <Route path="/password/reset/:token" component={<ResetPassword/>} />
+
           </Routes>
       </div>
       
